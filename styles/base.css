@@ -1,46 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   
+}
+
 body {
-    padding: 20px;
-    font-family: 'Roboto', sans-serif;
-    /*display: grid;
-    grid-template-rows: 1fr 5fr 1fr;
-    grid-template-areas: 
-        "header"
-        "main"
-        "footer";*/
+    font-family:'Roboto', sans-serif;
 }
 
 header {
-    grid-area: header;
     background-color: #333;
     color: white;
     text-align: center; 
-    padding: 20px 10px; 
+    height: 10%;
 }
 
 header h1 {
-    margin: 1rem;
+    padding: 30px;
     font-size: 2 rem;
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     justify-content: space-around;
     background-color: black;
 }
 
-nav li {
-    margin: 0;
-}
-
 nav a {
     text-decoration: none;
     color: white;
-    padding: 1rem 2rem;
-    display: block;
-    
+    padding: 10px;
+    display: block;  
+}
+
+nav ul :hover{
+    color:papayawhip;
 }
 
 
@@ -56,36 +51,86 @@ main section {
 
 
 h2 {
-    margin: 1rem;
+    display: block;
+    height: 10%;
+    color: white;
+    background-color: #333;
+    border-radius: 8px 8px 0px 0px;
+    font-size: 1.5rem;
+    margin: 0px 0px 10px 0px;
+    text-align: center;
+    padding: 10px;
 }
 
 .card {
     background-color: white;
-    padding: 50px;
+    margin: 10px 10px 10px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 10px;
+.container {
+    display: flex;
+    flex-direction: column; 
+    gap: 40px; 
+    padding: 4rem;
+  }
+  
+  .row {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    gap: 20px; 
+  }
+  
+  .img-right {
+    order: 2; 
+    max-width: 300px; 
+    height: 300px;   
 }
-
-.card h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+  
+  .img-left {
+    order: 1; 
+    max-width: 300px;   
 }
+  
+  .txt-left {
+    order: 1; 
+    flex: 1; 
+    font-size: larger;
+    line-height: 2rem;
+  }
+  
+  .txt-right {
+    order: 2; 
+    flex: 1; 
+    font-size: larger;
+    line-height: 2rem;
+  }
 
-.card p {
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
+  .dev-tools{
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    margin-left: 50px;
+    height: 80%;
+  }
+  
+  .dev-tools a{   
+    padding: 10px;
+    display: block;
+  }
 footer {
-    grid-area: footer;
+    display: block;
+    text-align: center;   
+    height: 5rem;
     background-color: #333;
+    
+}
+.paragraph-1{
     color: white;
-    text-align: center;
+    padding: 1rem;
+}
+.paragraph-2{
+    color: yellow;
 }
