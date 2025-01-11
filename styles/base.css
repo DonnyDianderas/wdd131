@@ -36,11 +36,10 @@ nav a {
     display: block;  
 }
 
-nav ul :hover{
-    color:papayawhip;
-    background-color: black;
+nav a:hover {
+    color: papayawhip; 
+    background-color: #555; 
 }
-
 
 main {
     display: grid;
