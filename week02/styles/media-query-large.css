@@ -1,0 +1,16 @@
+@media screen and (min-width: 500px)
+{
+    header{
+        background-color: black;
+        color: white;
+        margin: 1rem auto;
+        max-width: 640px;
+        padding: 1rem;
+    }
+    main{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1rem;
+    }
+}
+    
