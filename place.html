@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Donny Donald Dianderas Hernandez">
+    <meta name="description" content="Interactive page showcasing Peru's cultural and geographic highlights, including weather, population, and iconic landmarks like Machu Picchu.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/place.css">
+    <script src="scripts/place.js" defer></script>
+    <title>Place Activity</title>
+</head>
+<body>
+    <header>
+        <h1>Perú</h1>
+    </header>
+    <main>
+        <div class="hero">
+            <picture>
+                <source media="(max-width: 799px)" srcset="images/macchupicchu-small.webp" />
+                <source media="(min-width: 800px)" srcset="images/macchupicchu-large.webp" />
+                <img src="images/macchupicchu-large.webp" alt="This is an iconic photo of Macchupicchu" />
+            </picture>
+            <div class="data-section">
+                <h2>Data</h2>
+                <p>Area: 1,285,216 sq km</p>
+                <p>Population: 34,000,000</p>
+                <p>Capital: Lima</p>
+                <p>Languages: Spanish, Quechua, Aymara</p>
+                <p>Currency: Sol (PEN)</p>
+                <p>Time Zone: UTC-5</p>
+                <p>Calling Code: +51</p>
+                <p>Internet TLD: .pe</p>
+
+            </div>
+            <div class="weather-section">
+                <h2>Weather</h2>
+                <img class="weather-icon" src="images/weather-icon.svg" alt="Partly Cloudy">
+                <p>Temperature: 25°C</p>
+                <p>Conditions: Tropical, Partly Cloudy</p>
+                <p>Wind: 15 km/h</p>
+                <p>Wind Chill: <span id="windchill">N/A</span></p>
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="paragraph">
+            <p>&copy; <span id="currentyear"></span> Donny Dianderas Hernández, Perú</p>
+            <p id="lastModified"></p>
+        </div>      
+    </footer>
+    
+</body> 
+</html>
