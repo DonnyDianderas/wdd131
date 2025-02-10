@@ -1,14 +1,12 @@
-
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
+    min-height: 100vh; /* Asegura que el body ocupe al menos el 100% de la altura de la ventana */
+}
 
 header {
     background-color: #333;
@@ -21,17 +19,16 @@ main {
     padding: 1rem;
     max-width: 800px;
     margin: 0 auto;
-    flex: 1; }
+    flex: 1; /* Hace que el contenido principal ocupe el espacio restante */
+}
 
 footer {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 1rem 0;
-    margin-top: auto; 
+    margin-top: auto; /* Empuja el footer hacia abajo */
 }
-
-
 .form-container {
     background-color: #fff;
     padding: 1.5rem;
@@ -92,7 +89,6 @@ input[type="submit"]:hover {
     background-color: #555;
 }
 
-
 label[for="product"]::after,
 label[for="installation-date"]::after,
 fieldset legend::after {
@@ -108,5 +104,7 @@ fieldset legend::after {
     input[type="text"],
     input[type="date"],
     select,
-
+    textarea {
+        width: calc(100% - 1rem);
+    }
 }
