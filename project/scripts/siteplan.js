@@ -1,3 +1,9 @@
+// Objects used:  
+// document (to manipulate the DOM)  
+// FormData (to send form data)  
+// localStorage (to store data in the browser) 
+
+
 //Hamburger effect to collapse the menu on mobile screens:
 const hamButton = document.querySelector('#menu');
 const navigation = document.querySelector('.navigation');
@@ -32,9 +38,9 @@ document.addEventListener("DOMContentLoaded", function() {
   const form = document.getElementById("contactForm");
 
   form.addEventListener("submit", function(event) {
-      event.preventDefault(); // Evita que la página se recargue
+      event.preventDefault(); 
 
-      // Capturar los valores ingresados por el usuario
+      // Use of variables to capture the values entered by the user
       let name = document.getElementById("name").value.trim();
       let email = document.getElementById("email").value.trim();
       let message = document.getElementById("message").value.trim();
@@ -44,16 +50,15 @@ document.addEventListener("DOMContentLoaded", function() {
           return;
       }
 
-      // URL de tu formulario de Google Forms (usa "formResponse" en lugar de "viewform")
+      // URL of my Google Forms form
       let formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdvxnPqNgzNrGiGWkmrhbJbO6dT0b3Rpnax2MyBE2ASrfoSJQ/formResponse";
 
-      // Construir los datos a enviar
       let formData = new FormData();
-      formData.append("entry.55427798", name);      // Nombre
-      formData.append("entry.1531109985", email);   // Correo
-      formData.append("entry.1642900546", message); // Mensaje
+      formData.append("entry.55427798", name);     
+      formData.append("entry.1531109985", email);   
+      formData.append("entry.1642900546", message); 
 
-      // Enviar los datos usando Fetch API
+      // Send the data using Fetch API
       fetch(formUrl, {
           method: "POST",
           body: formData,
@@ -61,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function() {
       })
       .then(() => {
           alert("Message sent successfully!");
-          form.reset(); // Limpia el formulario
+          form.reset(); 
       })
       .catch(error => {
           alert("Error sending the message. Try again.");
@@ -72,6 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 //LocalStorage to store visits in the user's browser (just in the footer of the home page: siteplan):
+//Conditional Branching:
 document.addEventListener("DOMContentLoaded", function () {
   if (window.location.pathname.includes("siteplan.html")) {
       let visitCount = localStorage.getItem("visitCountSiteplan");
@@ -87,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-
-//Display the current year and indicate my last HTML update (in the footer):
-document.getElementById("currentyear").textContent = new Date().getFullYear();
-document.getElementById("lastModified").textContent = "Last Modified: " + document.lastModified;
+// Use of Template Literals for String Manipulation in the Footer
+// Display the current year and indicate my last HTML update (in the footer):
+document.getElementById("currentyear").textContent = `${new Date().getFullYear()}`;
+document.getElementById("lastModified").textContent = `Last Modified: ${document.lastModified}`;
