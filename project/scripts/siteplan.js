@@ -32,36 +32,35 @@ document.addEventListener("DOMContentLoaded", function() {
   const form = document.getElementById("contactForm");
 
   form.addEventListener("submit", function(event) {
+      event.preventDefault(); // Evita que la página se recargue
+
+      // Capturar los valores ingresados por el usuario
       let name = document.getElementById("name").value.trim();
       let email = document.getElementById("email").value.trim();
       let message = document.getElementById("message").value.trim();
 
       if (name === "" || email === "" || message === "") {
           alert("Please fill in all fields.");
-          event.preventDefault(); // Evita que el formulario se envíe
           return;
       }
 
-      // Si pasa la validación, mostrar mensaje de éxito y enviar a Google Forms
-      sendToGoogleForms();
-      event.preventDefault(); // Evita que la página se recargue
+      // Reemplaza entry.X con los identificadores correctos de Google Forms
+      let formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdvxnPqNgzNrGiGWkmrhbJbO6dT0b3Rpnax2MyBE2ASrfoSJQ/formResponse?";
+      let params = new URLSearchParams();
+      params.append("entry.55427798", name); // Cambia 123456 por tu entry real
+      params.append("entry.1531109985", email); // Cambia 654321 por tu entry real
+      params.append("entry.1642900546", message); // Cambia 987654 por tu entry real
+
+      // Enviar los datos sin recargar la página
+      fetch(formUrl + params.toString(), { mode: "no-cors", method: "POST" })
+          .then(() => {
+              alert("Message sent successfully!");
+              form.reset(); // Limpia el formulario
+          })
+          .catch(error => {
+              alert("Error sending the message. Try again.");
+          });
   });
-
-  function sendToGoogleForms() {
-      const form = document.getElementById("contactForm");
-      const formData = new FormData(form);
-
-      fetch(form.action, {
-          method: "POST",
-          body: formData,
-          mode: "no-cors"
-      }).then(() => {
-          alert("Message sent successfully!");
-          form.reset(); // Limpia el formulario después de enviarlo
-      }).catch(error => {
-          alert("Error sending the message. Try again.");
-      });
-  }
 });
 
 
