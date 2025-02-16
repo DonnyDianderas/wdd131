@@ -44,24 +44,31 @@ document.addEventListener("DOMContentLoaded", function() {
           return;
       }
 
-      // Reemplaza entry.X con los identificadores correctos de Google Forms
-      let formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdvxnPqNgzNrGiGWkmrhbJbO6dT0b3Rpnax2MyBE2ASrfoSJQ/formResponse?";
-      let params = new URLSearchParams();
-      params.append("entry.55427798", name); // Cambia 123456 por tu entry real
-      params.append("entry.1531109985", email); // Cambia 654321 por tu entry real
-      params.append("entry.1642900546", message); // Cambia 987654 por tu entry real
+      // URL de tu formulario de Google Forms (usa "formResponse" en lugar de "viewform")
+      let formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdvxnPqNgzNrGiGWkmrhbJbO6dT0b3Rpnax2MyBE2ASrfoSJQ/formResponse";
 
-      // Enviar los datos sin recargar la página
-      fetch(formUrl + params.toString(), { mode: "no-cors", method: "POST" })
-          .then(() => {
-              alert("Message sent successfully!");
-              form.reset(); // Limpia el formulario
-          })
-          .catch(error => {
-              alert("Error sending the message. Try again.");
-          });
+      // Construir los datos a enviar
+      let formData = new FormData();
+      formData.append("entry.55427798", name);      // Nombre
+      formData.append("entry.1531109985", email);   // Correo
+      formData.append("entry.1642900546", message); // Mensaje
+
+      // Enviar los datos usando Fetch API
+      fetch(formUrl, {
+          method: "POST",
+          body: formData,
+          mode: "no-cors"
+      })
+      .then(() => {
+          alert("Message sent successfully!");
+          form.reset(); // Limpia el formulario
+      })
+      .catch(error => {
+          alert("Error sending the message. Try again.");
+      });
   });
 });
+
 
 
 //LocalStorage to store visits in the user's browser (just in the footer of the home page: siteplan):
